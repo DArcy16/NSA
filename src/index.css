@@ -47,21 +47,21 @@ h6 {
 }
 
 .bg_blue {
-	background-image: url("src/assets/img/blue_bg.png");
+	background-image: url("/img/blue_bg.png");
 	background-position: top left;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 .bg_polygon {
-	background-image: url("src/assets/img/polygon.png");
+	background-image: url("/img/polygon.png");
 	background-position: top left;
 	background-repeat: no-repeat;
 	background-size: 2rem;
 }
 
 .bg_filler {
-	background-image: url("src/assets/img/aboutus.png"),
-		url("src/assets/img/aboutus2.png");
+	background-image: url("/img/aboutus.png"),
+		url("/img/aboutus2.png");
 	background-position: top left, bottom right;
 	background-repeat: no-repeat no-repeat;
 	background-size: contain contain;
