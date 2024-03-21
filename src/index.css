@@ -68,11 +68,10 @@ h6 {
 }
 
 .bg_filler {
-	background-image: url("/aboutus.png"),
-		url("/aboutus2.png");
-	background-position: top left, bottom right;
-	background-repeat: no-repeat no-repeat;
-	background-size: contain contain;
+	background-image: url("/about_bg.png");
+	background-position: top left;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .bg_gradient1 {

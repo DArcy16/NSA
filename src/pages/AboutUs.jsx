@@ -9,8 +9,8 @@ import VisionMissionCard from "../components/aboutus/VisionMissionCard";
 const AboutUs = () => {
 	return (
 		<div>
-			<div className="h-[356px] bg_filler flex bg-secondary justify-center items-center">
-				<h2 className="text-3xl font-semibold text-white">About Us</h2>
+			<div className="h-[356px] bg_filler flex bg-white justify-center items-center">
+				<h2 className="text-3xl font-semibold text-white">About NSA</h2>
 			</div>
 			<div className="section_padding2 flex items-center gap-6">
 				<img className="w-1/2" src={sliderImg2} alt="photo" />
