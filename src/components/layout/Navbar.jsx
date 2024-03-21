@@ -10,9 +10,17 @@ const Navbar = () => {
     return location.pathname.split("/").slice(1, 2)[0] === name; 
   }
 
+  const isTextWhite = () => {
+    return (
+			location.pathname.split("/").slice(1, 2)[0] === "about-nsa" ||
+			location.pathname.split("/").slice(1, 2)[0] === ""
+		);
+  }
+
+
 	return (
 		<nav className="text-sm font-semibold">
-			<ul className="flex justify-center">
+			<ul className={`flex justify-center ${isTextWhite() ? "text-white" : "text-secondary"}`}>
 				<li>
 					<Link
 						to={"/"}

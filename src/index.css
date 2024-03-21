@@ -52,6 +52,14 @@ h6 {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+.bg_orange {
+  background-image: url("/orange_bg.png");
+	background-position: top left;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 .bg_polygon {
 	background-image: url("/polygon.png");
 	background-position: top left;

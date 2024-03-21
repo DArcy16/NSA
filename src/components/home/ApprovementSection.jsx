@@ -12,7 +12,7 @@ const ApprovementSection = () => {
 			onEnter={() => setCounterOn(true)}
 			onExit={() => setCounterOn(false)}
 		>
-			<div className="h-[160px] flex bg_blue gap-16 text-white rounded-lg font-medium shadow-md items-center justify-center">
+			<div className="h-[160px] flex bg_orange gap-16 text-white rounded-lg font-medium shadow-md items-center justify-center">
 				<div className="text-center space-y-4">
 					<h3 className="text-[1.05rem]">Faculties</h3>
 					<h3 className="text-2xl drop-shadow-lg font-semibold ">
