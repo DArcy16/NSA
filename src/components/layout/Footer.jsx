@@ -4,12 +4,25 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import logo from "../../assets/img/logo.png";
-import slider1 from "../../assets/img/slider1.png"
-import { Facebook, Instagram, Location, Mail, Phone, X, Youtube } from "../../assets/icons/Icons";
+import slider1 from "../../assets/img/slider1.png";
+import slider2 from "../../assets/img/slider2.png";
+import slider3 from "../../assets/img/slider3.png";
+
+
+import {
+	Facebook,
+	Instagram,
+	Location,
+	Mail,
+	Phone,
+	X,
+	Youtube,
+} from "../../assets/icons/Icons";
 
 const Footer = () => {
 	const location = useLocation();
-	const isContactPage = location.pathname.split("/").slice(-1)[0] === "contact-us";
+	const isContactPage =
+		location.pathname.split("/").slice(-1)[0] === "contact-us";
 
 	return (
 		<div className="section_paddingTop">
@@ -40,10 +53,10 @@ const Footer = () => {
 					</div>
 				)}
 				<div className="space-y-3">
-					<h2 className="text-2xl text-center font-semibold text-white">
+					<h2 className="text-2xl -ml-12 font-semibold text-white">
 						Our Gallery
 					</h2>
-					<div className="flex">
+					{/* <div className="flex">
 						<div className="w-[216.5px] mr-1">
 							<img
 								className="w-full h-auto"
@@ -58,6 +71,28 @@ const Footer = () => {
 								alt="w-full h-auto"
 							/>
 						</div>
+					</div> */}
+					<div className="book w-fit">
+						<div className="back"></div>
+
+						<div className="page4">
+							<img
+								className="w-full h-full object-cover"
+								src={slider1}
+								alt=""
+							/>
+						</div>
+						<div className="page3">
+							<img
+								className="w-full h-full object-cover"
+								src={slider3}
+								alt=""
+							/>
+						</div>
+						<div className="page2"></div>
+						<div className="page1"></div>
+						<div className="middle"></div>
+						<div className="front"></div>
 					</div>
 				</div>
 				<div className="flex items-center justify-center">

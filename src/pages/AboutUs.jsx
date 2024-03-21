@@ -62,11 +62,11 @@ const AboutUs = () => {
 				</p>
 			</div>
 
-			<div className="section_padding1">
+			<div className="section_padding2">
 				<VisionMissionCard img={sliderImg2} heading="Vision" reverse=""/>
 			</div>
 
-            <div className="section_padding1">
+            <div className="section_padding2">
                 <VisionMissionCard img={sliderImg3} heading="Mission" reverse />
             </div>
 		</div>
