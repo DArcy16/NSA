@@ -63,7 +63,7 @@ const AboutUs = () => {
 			</div>
 
 			<div className="section_padding2">
-				<VisionMissionCard img={sliderImg2} heading="Vision" reverse=""/>
+				<VisionMissionCard img={sliderImg2} heading="Vision"/>
 			</div>
 
             <div className="section_padding2">

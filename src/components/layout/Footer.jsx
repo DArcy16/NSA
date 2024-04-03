@@ -18,6 +18,7 @@ import {
 	X,
 	Youtube,
 } from "../../assets/icons/Icons";
+import { Carousel } from "antd";
 
 const Footer = () => {
 	const location = useLocation();
@@ -27,7 +28,7 @@ const Footer = () => {
 	return (
 		<div className="section_paddingTop">
 			<div className="h-2 bg-third"></div>
-			<div className="flex justify-between section_padding1 bg-secondary">
+			<div className="flex justify-between items-start section_padding1 bg-secondary">
 				{isContactPage ? (
 					<div>
 						<iframe
@@ -52,51 +53,9 @@ const Footer = () => {
 						</div>
 					</div>
 				)}
-				<div className="space-y-3">
-					<h2 className="text-2xl -ml-12 font-semibold text-white">
-						Our Gallery
-					</h2>
-					{/* <div className="flex">
-						<div className="w-[216.5px] mr-1">
-							<img
-								className="w-full h-auto"
-								src={slider1}
-								alt="w-full h-auto"
-							/>
-						</div>
-						<div className="w-[216.5px]">
-							<img
-								className="w-full h-auto"
-								src={slider1}
-								alt="w-full h-auto"
-							/>
-						</div>
-					</div> */}
-					<div className="book w-fit">
-						<div className="back"></div>
 
-						<div className="page4">
-							<img
-								className="w-full h-full object-cover"
-								src={slider1}
-								alt=""
-							/>
-						</div>
-						<div className="page3">
-							<img
-								className="w-full h-full object-cover"
-								src={slider3}
-								alt=""
-							/>
-						</div>
-						<div className="page2"></div>
-						<div className="page1"></div>
-						<div className="middle"></div>
-						<div className="front"></div>
-					</div>
-				</div>
 				<div className="flex items-center justify-center">
-					<div className="w-fit bg_polygon h-fit border-2 border-third p-6 text-white space-y-3">
+					<div className="w-fit text-white space-y-3">
 						<h2 className="text-xl font-semibold">Contact Us</h2>
 						<div className="flex gap-3">
 							<Location className=" size-5" />
@@ -111,6 +70,44 @@ const Footer = () => {
 							info@nsa.edu.mm
 						</div>
 					</div>
+				</div>
+
+				<div className="w-fit  text-white space-y-3">
+					<h3 className="text-xl font-semibold">Quick Links</h3>
+					<ul className=" list-disc list-inside space-y-3">
+						<li>
+							<Link>Home</Link>
+						</li>
+						<li>
+							<Link>About NSA</Link>
+						</li>
+						<li>
+							<Link>Library</Link>
+						</li>
+						<li>
+							<Link>Program</Link>
+						</li>
+						<li>
+							<Link>Research</Link>
+						</li>
+					</ul>
+				</div>
+
+				<div className=" w-[22rem] h-auto rounded-md overflow-hidden">
+					<h3 className="font-semibold py-2 text-white text-base text-center bg-primary">
+						Gallery
+					</h3>
+					<Carousel dotPosition="left" dots={false} autoplay autoplaySpeed={3000} infinite>
+						<div>
+							<img className="w-full h-[180px] object-cover" src={slider1} alt="" />
+						</div>
+						<div>
+							<img className="w-full h-[180px] object-cover" src={slider2} alt="" />
+						</div>
+						<div>
+							<img className="w-full h-[180px] object-cover" src={slider3} alt="" />
+						</div>
+					</Carousel>
 				</div>
 			</div>
 			<div className="py-2 bg-primary text-white text-center">
