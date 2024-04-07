@@ -94,7 +94,7 @@ const Footer = () => {
 				</div>
 
 				<div className=" w-[22rem] h-auto rounded-md overflow-hidden">
-					<h3 className="font-semibold py-2 text-white text-base text-center bg-primary">
+					<h3 className="font-semibold py-2 text-white text-base text-center bg_blue">
 						Gallery
 					</h3>
 					<Carousel dotPosition="left" dots={false} autoplay autoplaySpeed={3000} infinite>

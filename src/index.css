@@ -189,6 +189,11 @@ h6 {
 	@apply pt-10 px-20;
 }
 
+table td,
+table th {
+	padding: 10px 8px;
+}
+
 .top_section_padding {
 	@apply pt-20 px-20;
 }
