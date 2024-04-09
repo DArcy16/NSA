@@ -7,12 +7,13 @@ import ResearchWork from "./ResearchWork";
 import MBA from "./MBA";
 import BBA from "./BBA";
 import DMA from "./DMA";
+import PBA from "./PBA";
 import Research from "./Research";
 import DegreeOffered from "./DegreeOffered";
 import Activities from "./Activities";
 import International from "./International";
 
-const Tab = ({ activeTab, handleChange }) => {
+const Tab = ({ activeTab, handleChange, major }) => {
 	return (
 		<ul className="flex font-semibold text-secondary">
 			<li className="relative group ">
@@ -56,7 +57,8 @@ const Tab = ({ activeTab, handleChange }) => {
 						className={`px-6 py-2 cursor-pointer ${
 							(activeTab === "bba" ||
 								activeTab === "mba" ||
-								activeTab === "dma") &&
+								activeTab === "dma" ||
+								activeTab === "pba") &&
 							"bg-third text-white"
 						} `}
 					>
@@ -70,9 +72,9 @@ const Tab = ({ activeTab, handleChange }) => {
 								onClick={() => handleChange("bba")}
 								className={`${
 									activeTab === "bba" ? "bg-primary" : "bg-third / 80"
-								} px-6 py-2 text-xs flex items-center gap-3 w-full  text-white`}
+								} px-6 py-2 text-xs flex items-center gap-3 w-60  text-white`}
 							>
-								<GraduateCap size={20} /> BBA
+								<GraduateCap size={20} /> Bachelor Of {major}
 							</button>
 						</li>
 						<li>
@@ -80,9 +82,19 @@ const Tab = ({ activeTab, handleChange }) => {
 								onClick={() => handleChange("mba")}
 								className={`${
 									activeTab === "mba" ? "bg-primary" : "bg-third / 80"
-								} px-6 py-2 text-xs flex items-center gap-3 w-full  text-white`}
+								} px-6 py-2 text-xs flex items-center gap-3 w-60  text-white`}
 							>
-								<GraduateCap size={20} /> MBA
+								<GraduateCap size={20} /> Master of {major}
+							</button>
+						</li>
+						<li>
+							<button
+								onClick={() => handleChange("pba")}
+								className={`${
+									activeTab === "pba" ? "bg-primary" : "bg-third / 80"
+								} px-6 py-2 text-xs flex items-center gap-3 w-60  text-white`}
+							>
+								<GraduateCap size={20} /> Professor Of Philosophy
 							</button>
 						</li>
 						<li>
@@ -90,9 +102,10 @@ const Tab = ({ activeTab, handleChange }) => {
 								onClick={() => handleChange("dma")}
 								className={`${
 									activeTab === "dma" ? "bg-primary" : "bg-third / 80"
-								} px-6 py-2 text-xs flex items-center gap-3 w-full  text-white`}
+								} px-6 py-2 text-xs flex items-center gap-3 w-60  text-white`}
 							>
-								<GraduateCap size={20} /> DMA
+								<GraduateCap size={20} /> Diploma in Management and
+								Administration
 							</button>
 						</li>
 					</ul>
@@ -151,13 +164,14 @@ const Dashboard = ({ major }) => {
 
 	return (
 		<div className="mt-6">
-			<Tab activeTab={activeTab} handleChange={handleTabChange} />
+			<Tab activeTab={activeTab} handleChange={handleTabChange} major={major} />
 			<div className="h-[1.5px] bg-third"></div>
 
 			{activeTab === "faculty-members" && <FacultyMembers major={major} />}
 			{activeTab === "research-work" && <ResearchWork major={major} />}
 			{activeTab === "mba" && <MBA major={major} />}
 			{activeTab === "bba" && <BBA major={major} />}
+			{activeTab === "pba" && <PBA major={major} />}
 			{activeTab === "dma" && <DMA major={major} />}
 			{activeTab === "research" && <Research major={major} />}
 			{activeTab === "degree-offered" && <DegreeOffered major={major} />}
