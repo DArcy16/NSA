@@ -4,7 +4,8 @@ import React from "react";
 
 import logo from "../../assets/img/logo.png";
 
-const SideBar = () => {
+const SideBar = ({ data }) => {
+	console.log(data);
 	const Card = ({ heading, desc }) => {
 		return (
 			<div className="text-primary space-y-2">
@@ -12,13 +13,9 @@ const SideBar = () => {
 					{heading}
 				</h2>
 				<div className=" h-[.15rem] w-12 mx-auto bg-black/80"></div>
-				<p className="text-justify">
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-					aperiam similique quibusdam! Recusandae harum natus sit labore
-					quaerat, eum quidem voluptates magnam sequi amet delectus accusamus.
-					Voluptatem doloribus delectus qui. Lorem ipsum dolor sit amet
+				<div dangerouslySetInnerHTML={{__html: desc}} className="text-justify">
 					
-				</p>
+				</div>
 			</div>
 		);
 	};
@@ -26,12 +23,12 @@ const SideBar = () => {
 	return (
 		<div className="space-y-6">
 			<div className="w-fit mx-auto">
-				<img className=" size-28" src={logo} alt="logo" />
+				<img className="size-28" src={data.home.logo} alt="logo" />
 			</div>
 
-			<Card heading={"Motto"} />
-			<Card heading={"Vision"} />
-			<Card heading={"Mission"} />
+			{data.home.motto_title && <Card heading={data.home.motto_title} desc={data.home.motto_description}/>}
+			{data.home.vision_title && <Card heading={data.home.vision_title} desc={data.home.vision_description}/>}
+			{data.home.mission_title && <Card heading={data.home.mission_title} desc={data.home.mission_description}/>}
 		</div>
 	);
 };

@@ -206,6 +206,11 @@ table th {
 	@apply text-sm font-semibold text-white bg-secondary hover:bg-primary cursor-pointer;
 }
 
+.aside_card_desc ul,
+.aside_card_desc ol {
+	@apply px-12 space-y-2 list-inside !important
+}
+
 /* react slick */
 .ant-carousel .slick-dots li button:before {
 	opacity: 0 !important;
