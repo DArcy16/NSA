@@ -3,14 +3,17 @@
 import React, { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Dropdown, Dropright } from "../../assets/icons/Icons";
-import { useFetchAdCategories, useFetchFacultyCategories } from "../../hooks/useHome";
+import {
+	useFetchAdCategories,
+	useFetchFacultyCategories,
+} from "../../hooks/useHome";
 import { slugify } from "../../utils/slugify";
 
 const Navbar = () => {
 	const location = useLocation();
 	const { data: facultyCategories, isLoading: facultyLoading } =
 		useFetchFacultyCategories();
-	const {data: adCategories, isLoading: adLoading} = useFetchAdCategories();
+	const { data: adCategories, isLoading: adLoading } = useFetchAdCategories();
 
 	const facultyLink = useMemo(() => {
 		if (!facultyLoading) {
@@ -103,7 +106,7 @@ const Navbar = () => {
 		{
 			name: "Administration Departments",
 			root: "administration-departments",
-			child: adLink
+			child: adLink,
 		},
 		{
 			name: "Library",
@@ -163,15 +166,19 @@ const Navbar = () => {
 			child: [
 				{
 					name: "News",
-					url: "/news-&-activities/News",
+					url: "/news-&-activities?type=news",
 				},
 				{
 					name: "Events & Activities",
-					url: "/news-&-activities/events-&-activities",
+					url: "/news-&-activities?type=activities",
 				},
 				{
 					name: "Gallery",
 					url: "/news-&-activities/gallery",
+				},
+				{
+					name: "Internship",
+					url: "/news-&-activities/internship",
 				},
 			],
 		},

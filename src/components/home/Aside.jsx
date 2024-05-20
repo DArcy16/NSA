@@ -3,7 +3,6 @@
 import React from "react";
 
 const Aside = ({ data }) => {
-	console.log(data);
 	const Card = ({ heading, desc, button }) => {
 		return (
 			<article className="bg-gray-100 space-y-3 pb-5 rounded-sm overflow-hidden shadow-md">

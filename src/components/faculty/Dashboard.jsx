@@ -4,16 +4,23 @@ import React, { useState } from "react";
 import { GraduateCap } from "../../assets/icons/Icons";
 import FacultyMembers from "./FacultyMembers";
 import ResearchWork from "./ResearchWork";
-import MBA from "./MBA";
 import BBA from "./BBA";
-import DMA from "./DMA";
-import PBA from "./PBA";
 import Research from "./Research";
 import DegreeOffered from "./DegreeOffered";
 import Activities from "./Activities";
 import International from "./International";
+import { useFetchFacultyProgramCategories } from "../../hooks/useHome";
 
-const Tab = ({ activeTab, handleChange, major }) => {
+const Tab = ({
+	activeTab,
+	handleChange,
+	major,
+	catId,
+	subCatId,
+	programId,
+}) => {
+	const { data } = useFetchFacultyProgramCategories(catId, subCatId);
+
 	return (
 		<ul className="flex font-semibold text-secondary">
 			<li className="relative group ">
@@ -55,11 +62,7 @@ const Tab = ({ activeTab, handleChange, major }) => {
 				<li className="relative group ">
 					<p
 						className={`px-6 py-2 cursor-pointer ${
-							(activeTab === "bba" ||
-								activeTab === "mba" ||
-								activeTab === "dma" ||
-								activeTab === "pba") &&
-							"bg-third text-white"
+							activeTab === "program" && "bg-third text-white"
 						} `}
 					>
 						Program
@@ -67,47 +70,18 @@ const Tab = ({ activeTab, handleChange, major }) => {
 					<ul
 						className={`absolute z-10 group-hover:block hidden top-full left-0 space-y-1 pt-1`}
 					>
-						<li>
-							<button
-								onClick={() => handleChange("bba")}
-								className={`${
-									activeTab === "bba" ? "bg-primary" : "bg-third / 80"
-								} px-6 py-2 text-xs flex items-center gap-3 w-60  text-white`}
-							>
-								<GraduateCap size={20} /> Bachelor Of {major}
-							</button>
-						</li>
-						<li>
-							<button
-								onClick={() => handleChange("mba")}
-								className={`${
-									activeTab === "mba" ? "bg-primary" : "bg-third / 80"
-								} px-6 py-2 text-xs flex items-center gap-3 w-60  text-white`}
-							>
-								<GraduateCap size={20} /> Master of {major}
-							</button>
-						</li>
-						<li>
-							<button
-								onClick={() => handleChange("pba")}
-								className={`${
-									activeTab === "pba" ? "bg-primary" : "bg-third / 80"
-								} px-6 py-2 text-xs flex items-center gap-3 w-60  text-white`}
-							>
-								<GraduateCap size={20} /> Professor Of Philosophy
-							</button>
-						</li>
-						<li>
-							<button
-								onClick={() => handleChange("dma")}
-								className={`${
-									activeTab === "dma" ? "bg-primary" : "bg-third / 80"
-								} px-6 py-2 text-xs flex items-center gap-3 w-60  text-white`}
-							>
-								<GraduateCap size={20} /> Diploma in Management and
-								Administration
-							</button>
-						</li>
+						{data?.program_categories?.map((item) => (
+							<li>
+								<button
+									onClick={() => handleChange("program", item?.id)}
+									className={`${
+										programId === item?.id ? "bg-primary" : "bg-third / 80"
+									} px-6 py-2 text-xs flex items-center gap-3 w-60  text-white`}
+								>
+									<GraduateCap size={20} /> {item?.name}
+								</button>
+							</li>
+						))}
 					</ul>
 				</li>
 			</li>
@@ -155,28 +129,53 @@ const Tab = ({ activeTab, handleChange, major }) => {
 	);
 };
 
-const Dashboard = ({ major }) => {
+const Dashboard = ({ major, catId, subCatId }) => {
 	const [activeTab, setActiveTab] = useState("faculty-members");
+	const [programId, setProgramId] = useState("");
 
-	const handleTabChange = (name) => {
+	const handleTabChange = (name, id) => {
 		setActiveTab(name);
+		id ? setProgramId(id) : setProgramId("");
 	};
 
 	return (
 		<div className="mt-6">
-			<Tab activeTab={activeTab} handleChange={handleTabChange} major={major} />
+			<Tab
+				activeTab={activeTab}
+				handleChange={handleTabChange}
+				major={major}
+				catId={catId}
+				subCatId={subCatId}
+				programId={programId}
+			/>
 			<div className="h-[1.5px] bg-third"></div>
 
-			{activeTab === "faculty-members" && <FacultyMembers major={major} />}
-			{activeTab === "research-work" && <ResearchWork major={major} />}
-			{activeTab === "mba" && <MBA major={major} />}
-			{activeTab === "bba" && <BBA major={major} />}
-			{activeTab === "pba" && <PBA major={major} />}
-			{activeTab === "dma" && <DMA major={major} />}
-			{activeTab === "research" && <Research major={major} />}
-			{activeTab === "degree-offered" && <DegreeOffered major={major} />}
-			{activeTab === "activities" && <Activities major={major} />}
-			{activeTab === "international" && <International major={major} />}
+			{activeTab === "faculty-members" && (
+				<FacultyMembers major={major} catId={catId} subCatId={subCatId} />
+			)}
+			{activeTab === "research-work" && (
+				<ResearchWork major={major} catId={catId} subCatId={subCatId} />
+			)}
+			{activeTab === "program" && (
+				<BBA
+					major={major}
+					catId={catId}
+					subCatId={subCatId}
+					programId={programId}
+				/>
+			)}
+			{activeTab === "research" && (
+				<Research major={major} catId={catId} subCatId={subCatId} />
+			)}
+			{activeTab === "degree-offered" && (
+				<DegreeOffered major={major} catId={catId} subCatId={subCatId} />
+			)}
+			{activeTab === "activities" && (
+				<Activities major={major} catId={catId} subCatId={subCatId} />
+			)}
+			{activeTab === "international" && (
+				<International major={major} catId={catId} subCatId={subCatId} />
+			)}
 		</div>
 	);
 };

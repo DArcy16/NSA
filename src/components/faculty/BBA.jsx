@@ -1,8 +1,18 @@
 /** @format */
 
 import React from "react";
+import { useFetchFacultyProgram } from "../../hooks/useHome";
+import Loading from "../../pages/Loading";
 
-const BBA = () => {
+const BBA = ({ catId, subCatId, programId }) => {
+	const { data, isLoading } = useFetchFacultyProgram(
+		catId,
+		subCatId,
+		programId
+	);
+
+	if(isLoading) return <Loading />
+
 	return (
 		<div className="mt-12 space-y-10">
 			<div className="flex gap-8">

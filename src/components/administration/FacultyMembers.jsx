@@ -2,20 +2,21 @@
 
 import React from "react";
 
-import { useFetchFacultyPeople } from "../../hooks/useHome";
+import { useFetchAdPeople } from "../../hooks/useHome";
 import Loading from "../../pages/Loading";
 
 const FacultyMembers = ({ catId, subCatId }) => {
-	const { data: members, isLoading } = useFetchFacultyPeople(catId, subCatId);
+	const { data: members, isLoading } = useFetchAdPeople(catId, subCatId);
+	
 
 	if (isLoading) return <Loading />;
 
 
-	const role_1 = members?.facultyMembers?.filter(item => item.role === 1)
-	const role_2 = members?.facultyMembers?.filter((item) => item.role === 2);
-	const role_3 = members?.facultyMembers?.filter((item) => item.role === 3);
-	const role_4 = members?.facultyMembers?.filter((item) => item.role === 4);
-	const role_5 = members?.facultyMembers?.filter((item) => item.role === 5);
+	const role_1 = members?.adMembers?.filter(item => item.role === 1)
+	const role_2 = members?.adMembers?.filter((item) => item.role === 2);
+	const role_3 = members?.adMembers?.filter((item) => item.role === 3);
+	const role_4 = members?.adMembers?.filter((item) => item.role === 4);
+	const role_5 = members?.adMembers?.filter((item) => item.role === 5);
 
 
 	const StaffCard = ({ info, head = false }) => {

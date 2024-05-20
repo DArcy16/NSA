@@ -17,6 +17,8 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { GiGraduateCap } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { IoIosArrowRoundBack } from "react-icons/io";
+
 
 
 
@@ -43,5 +45,6 @@ export const Dropdown = IoMdArrowDropdown
 export const ArrowUp = MdOutlineKeyboardArrowUp
 export const ArrowDown = MdOutlineKeyboardArrowDown
 export const GraduateCap = GiGraduateCap
+export const Back = IoIosArrowRoundBack
 
 

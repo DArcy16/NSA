@@ -2,12 +2,12 @@
 
 import React from "react";
 
-import { useFetchFacultyActivity } from "../../hooks/useHome";
+import { useFetchAdActivity } from "../../hooks/useHome";
 import Loading from "../../pages/Loading";
 import { formatDate } from "../../utils/slugify";
 
-const Activities = ({ major, catId, subCatId }) => {
-	const { data, isLoading } = useFetchFacultyActivity(catId, subCatId);
+const Activities = ({ catId, subCatId }) => {
+	const { data, isLoading } = useFetchAdActivity(catId, subCatId);
 
 	if (isLoading) <Loading />;
 

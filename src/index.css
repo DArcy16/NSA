@@ -111,7 +111,7 @@ h6 {
 	height: 100%;
 	top: 0;
 	left: 0;
-	background-color:white;
+	background-color: white;
 	z-index: 1000;
 }
 
@@ -206,9 +206,25 @@ table th {
 	@apply text-sm font-semibold text-white bg-secondary hover:bg-primary cursor-pointer;
 }
 
+.btn_orange {
+	@apply text-sm font-semibold text-white bg-third hover:bg-third/90 cursor-pointer;
+}
+
+.aside_card_desc {
+	@apply px-12 !important;
+}
+
+.aside_card_desc ul {
+	@apply list-disc
+}
+
+.aside_card_desc ol {
+	@apply list-decimal
+}
+
 .aside_card_desc ul,
 .aside_card_desc ol {
-	@apply px-12 space-y-2 list-inside !important
+	@apply space-y-2 list-inside !important;
 }
 
 /* react slick */

@@ -7,10 +7,10 @@ import { Carousel } from "antd";
 import { reSlugify } from "../utils/slugify";
 
 import { ArrowDown } from "../assets/icons/Icons";
-import { useFetchFaculty } from "../hooks/useHome";
+import Dashboard from "../components/administration/Dashboard";
+import { useFetchAdministration } from "../hooks/useHome";
 
 import Loading from "./Loading";
-import Dashboard from "../components/faculty/Dashboard";
 
 const Collapse = ({ title, renderItem }) => {
 	const [showCollapse, setShowCollapse] = useState(false);
@@ -36,17 +36,17 @@ const Collapse = ({ title, renderItem }) => {
 	);
 };
 
-const Faculty = () => {
+const Administration = () => {
 	const { major } = useParams();
 	const [searchParams] = useSearchParams();
 	const catId = searchParams.get("category_id");
 	const subCatId = searchParams.get("sub_category_id");
 
-	const { data: faculty, isLoading } = useFetchFaculty(catId, subCatId);
+	const { data: administration, isLoading } = useFetchAdministration(catId, subCatId);
 
 	if (isLoading) return <Loading />;
 
-	const filterData = faculty.facultyAboutDepartments[0];
+	const filterData = administration?.administrationDepartments[0];
 
 	return (
 		<div className="top_section_padding">
@@ -145,4 +145,4 @@ const Faculty = () => {
 	);
 };
 
-export default Faculty;
+export default Administration;
