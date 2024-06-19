@@ -6,29 +6,38 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Back, Book } from "../assets/icons/Icons";
 import Loading from "./Loading";
 import { slugify } from "../utils/slugify";
-import { useFetchNewsAndActivities } from "../hooks/useHome";
+import {
+	useFetchNewsAndActivities,
+	useFetchNewsDetails,
+	useFetchSingleNew,
+} from "../hooks/useHome";
 
 const NewDetails = () => {
-	const { data, isLoading } = useFetchNewsAndActivities();
+	// const { data, isLoading } = useFetchNewsAndActivities();
 	const [searchParams] = useSearchParams();
 	const navigate = useNavigate();
 	const id = searchParams.get("id");
+	const type = searchParams.get("type");
 
-	if (isLoading) <Loading />;
+	const { data: singleNew, isLoading: singleLoading } =
+		type === "activities" ? useFetchSingleNew(id) : useFetchNewsDetails(id);
 
-	const filterData = useMemo(() => {
-		if (data && !isLoading) {
-			return data?.newactivities;
-		}
-	}, [data]);
-
+	// const filterData = useMemo(() => {
+	// 	if (singleNew && !singleLoading) {
+	// 		return singleNew?.newactivities;
+	// 	}
+	// }, [singleNew]);
 	const singleData = useMemo(() => {
-		if (data && !isLoading) {
-			return data?.newactivities?.filter(item => item?.id == id)[0];
+		if (singleNew && !singleLoading) {
+			return type === "activities"
+				? singleNew?.newactivities[0]
+				: singleNew?.news[0];
 		}
-	}, [data, id]);
+	}, [singleNew, id]);
 
+	if (singleLoading) return <Loading />;
 
+	
 
 	return (
 		<div className=" top_section_padding">
@@ -60,8 +69,8 @@ const NewDetails = () => {
 					)}
 				</div>
 
-				<div className="w-[300px] space-y-3">
-					{/* Recent Posts */}
+				{/* <div className="w-[300px] space-y-3">
+					Recent Posts
 					<div className="bg-gray-100 space-y-3 pb-5 rounded-sm overflow-hidden shadow-md">
 						<h2 className="h-12 bg_blue flex items-center justify-center text-lg text-white">
 							Recent Posts
@@ -81,7 +90,7 @@ const NewDetails = () => {
 							</ul>
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

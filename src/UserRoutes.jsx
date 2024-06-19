@@ -8,6 +8,8 @@ import Administration from "./pages/Administration";
 import Library from "./pages/Library";
 import NewsAndActivities from "./pages/NewsAndActivities";
 import NewDetails from "./pages/NewDetails";
+import Gallery from "./pages/Gallery";
+import Internship from "./pages/Internship";
 
 const UserRoutes = [
 	{
@@ -42,6 +44,14 @@ const UserRoutes = [
 				{
 					path: ":title",
 					element : <NewDetails />
+				},
+				{
+					path: "gallery",
+					element : <Gallery />
+				},
+				{
+					path: "internship",
+					element : <Internship />
 				},
 				{
 					path: "sling",

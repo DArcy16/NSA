@@ -21,7 +21,7 @@ const Activities = ({ catId, subCatId }) => {
 					alt={item?.name}
 				/>
 				<h2 className="text-base mt-1 w-full font-bold">{item?.name}</h2>
-				<span className="font-medium">{formatDate(createdAt)}</span>
+				{/* <span className="font-medium">{formatDate(createdAt)}</span> */}
 			</article>
 		);
 	};

@@ -215,7 +215,7 @@ const Navbar = () => {
 				<ul className="absolute pt-3 min-w-52 top-full group-hover:block hidden text-sm  rounded-md text-black">
 					{link?.child?.map((item) => {
 						return item?.child ? (
-							<li className="relative group/sub bg-gray-200 first:rounded-t-md last:rounded-b-md">
+							<li key={item?.name} className="relative group/sub bg-gray-200 first:rounded-t-md last:rounded-b-md">
 								<div className="py-3 px-4 flex items-center rounded-md justify-between  hover:bg-third hover:text-white">
 									{item?.name} <Dropright size={17} />
 								</div>

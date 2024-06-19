@@ -8,7 +8,7 @@ const SideBar = ({ data }) => {
 	console.log(data);
 	const Card = ({ heading, desc }) => {
 		return (
-			<div className="text-primary space-y-2">
+			<div className="sidebar_desc text-primary space-y-2">
 				<h2 className="text-2xl text-center font-semibold tracking-wider">
 					{heading}
 				</h2>

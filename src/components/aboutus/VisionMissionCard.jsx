@@ -12,7 +12,7 @@ const VisionMissionCard = ({
 		<div
 			className={`flex items-center justify-center ${
 				reverse ? "flex-row-reverse" : "flex-row"
-			}`}
+			} vision-mission-card aside_card_desc`}
 		>
 			<img className="w-1/2" src={img} alt="img" />
 			<div className="relative max-w-[600px] h-fit">

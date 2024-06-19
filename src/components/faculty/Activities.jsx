@@ -9,10 +9,11 @@ import { formatDate } from "../../utils/slugify";
 const Activities = ({ major, catId, subCatId }) => {
 	const { data, isLoading } = useFetchFacultyActivity(catId, subCatId);
 
-	if (isLoading) <Loading />;
+	if (isLoading) return <Loading />;
 
 	const ActivityCard = ({ item }) => {
-		const createdAt = new Date(item?.createdAt);
+		const createdAt = new Date(item?.created_at);
+		console.log(item)
 		return (
 			<article className="w-[300px]">
 				<img
@@ -21,7 +22,7 @@ const Activities = ({ major, catId, subCatId }) => {
 					alt={item?.name}
 				/>
 				<h2 className="text-base mt-1 w-full font-bold">{item?.name}</h2>
-				<span className="font-medium">{formatDate(createdAt)}</span>
+				{/* <span className="font-medium">{formatDate(createdAt)}</span> */}
 			</article>
 		);
 	};

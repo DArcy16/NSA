@@ -14,6 +14,8 @@ import Loading from "./Loading";
 const Home = () => {
 	const { data, isLoading } = useFetchHome();
 
+	console.log(data)
+
 	if (isLoading) return <Loading />;
 
 	return (

@@ -60,6 +60,13 @@ h6 {
 	background-size: cover;
 }
 
+.bg_info_card {
+	background-image: url("/info_card_bg.png");
+	background-position: top left;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 .bg_polygon {
 	background-image: url("/polygon.png");
 	background-position: top left;
@@ -214,17 +221,35 @@ table th {
 	@apply px-12 !important;
 }
 
-.aside_card_desc ul {
-	@apply list-disc
+.aside_card_desc ul,
+.sidebar_desc ul {
+	@apply list-disc ml-4;
 }
 
-.aside_card_desc ol {
-	@apply list-decimal
+.vision-mission-card p,
+.vision-mission-card p span {
+	@apply text-base !important
+}
+
+.aside_card_desc ol,
+.sidebar_desc ol {
+	@apply list-decimal;
 }
 
 .aside_card_desc ul,
-.aside_card_desc ol {
-	@apply space-y-2 list-inside !important;
+.aside_card_desc ol,
+.sidebar_desc ul,
+.sidebar_desc ol {
+	@apply space-y-1 list-outside !important;
+}
+
+.vision-collapse ul {
+	@apply list-disc list-inside  space-y-1 !important;
+}
+
+.core_value p,
+.core_value span {
+	@apply text-white !important;
 }
 
 /* react slick */

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import FacultyMembers from "./FacultyMembers";
 import Activities from "./Activities";
 import NotFound from "../../pages/NotFound";
+import Services from "./Services";
 
 const Tab = ({
 	activeTab,
@@ -74,7 +75,7 @@ const Dashboard = ({ major, catId, subCatId }) => {
 			{activeTab === "activities" && (
 				<Activities major={major} catId={catId} subCatId={subCatId} />
 			)}
-			{activeTab === "services" && <NotFound />}
+			{activeTab === "services" && <Services />}
 		</div>
 	);
 };

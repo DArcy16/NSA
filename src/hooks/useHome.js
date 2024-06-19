@@ -15,10 +15,15 @@ import {
 	fetchFacultyProgram,
 	fetchFacultyProgramCategories,
 	fetchFacultyResearchWork,
+	fetchGallery,
 	fetchHome,
+	fetchLatestNews,
 	fetchLibrary,
 	fetchLibraryMember,
+	fetchNewDetails,
+	fetchNews,
 	fetchNewsAndActivities,
+	fetchSingleNew,
 } from "../services/api/homeapi";
 
 export const useFetchHome = () => {
@@ -40,12 +45,50 @@ export const useFetchLibraryMember = () => {
 	});
 };
 
-export const useFetchNewsAndActivities = () => {
+export const useFetchNewsAndActivities = (filter = "") => {
 	return useQuery({
-		queryKey: ["library_member"],
-		queryFn: fetchNewsAndActivities,
+		queryKey: ["news&activities", filter],
+		queryFn: () => fetchNewsAndActivities(filter),
 	});
 };
+
+export const useFetchSingleNew = (id = "") => {
+	return useQuery({
+		queryKey: ["single new", id],
+		queryFn: () => fetchSingleNew(id),
+	});
+};
+
+export const useFetchGallery = () => {
+	return useQuery({
+		queryKey: ["gallery"],
+		queryFn: fetchGallery,
+	});
+};
+
+export const useFetchNews = (type) => {
+	return useQuery({
+		queryKey: ["news" ,type],
+		queryFn: () => fetchNews(type),
+	});
+};
+
+export const useFetchLatestNews = () => {
+	return useQuery({
+		queryKey: ["latestNew"],
+		queryFn: fetchLatestNews,
+	});
+};
+
+export const useFetchNewsDetails = (id) => {
+	return useQuery({
+		queryKey: ["newDetails", id],
+		queryFn: () => fetchNewDetails(id),
+	});
+};
+
+
+
 
 export const useFetchFacultyCategories = () => {
 	return useQuery({

@@ -16,7 +16,7 @@ const Collapse = ({ title, renderItem }) => {
 	const [showCollapse, setShowCollapse] = useState(false);
 
 	return (
-		<article className="">
+		<article className="vision-collapse">
 			<button
 				onClick={() => setShowCollapse(!showCollapse)}
 				className="px-5 py-3 w-full flex justify-between drop-shadow-lg items-center bg-third text-[16px] rounded-md text-white font-medium"
@@ -53,7 +53,7 @@ const Faculty = () => {
 			<div className="flex gap-8">
 				<div className="flex-1 space-y-3">
 					<img
-						className="w-[120px] h-[120px] object-cover block mx-auto"
+						className="w-[120px] h-[120px] object-contain block mx-auto"
 						src={filterData?.title_photo}
 					/>
 					<h2 className="capitalize text-2xl font-semibold text-center">

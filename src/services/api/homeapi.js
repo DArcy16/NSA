@@ -78,7 +78,7 @@ export const fetchLibraryMember = async () => {
 	}
 };
 
-export const fetchNewsAndActivities = async () => {
+export const fetchLatestNews = async () => {
 	const requestOption = {
 		headers: {
 			"Content-Type": "application/json",
@@ -88,7 +88,108 @@ export const fetchNewsAndActivities = async () => {
 	};
 
 	try {
-		const response = await fetch(`${URL}all_NewActivity`, requestOption);
+		const response = await fetch(`${URL}latest_NewActivity`, requestOption);
+		const data = await response.json();
+		if (!response.ok) throw new Error(data.message);
+		return data;
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const fetchNews = async (type) => {
+	const requestOption = {
+		headers: {
+			"Content-Type": "application/json",
+		},
+		mode: "cors",
+		method: "GET",
+	};
+
+	try {
+		const response = await fetch(`${URL}get_New/${type}`, requestOption);
+		const data = await response.json();
+		if (!response.ok) throw new Error(data.message);
+		return data;
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const fetchNewDetails = async (id) => {
+	const requestOption = {
+		headers: {
+			"Content-Type": "application/json",
+		},
+		mode: "cors",
+		method: "GET",
+	};
+
+	try {
+		const response = await fetch(`${URL}get_New_By_Id/${id}`, requestOption);
+		const data = await response.json();
+		if (!response.ok) throw new Error(data.message);
+		return data;
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const fetchGallery = async () => {
+	const requestOption = {
+		headers: {
+			"Content-Type": "application/json",
+		},
+		mode: "cors",
+		method: "GET",
+	};
+
+	try {
+		const response = await fetch(`${URL}gallery`, requestOption);
+		const data = await response.json();
+		if (!response.ok) throw new Error(data.message);
+		return data;
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const fetchNewsAndActivities = async (filter = "") => {
+	const requestOption = {
+		headers: {
+			"Content-Type": "application/json",
+		},
+		mode: "cors",
+		method: "GET",
+	};
+
+	try {
+		const response = await fetch(
+			`${URL}get_NewActivity/${filter}`,
+			requestOption
+		);
+		const data = await response.json();
+		if (!response.ok) throw new Error(data.message);
+		return data;
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const fetchSingleNew = async (id = "") => {
+	const requestOption = {
+		headers: {
+			"Content-Type": "application/json",
+		},
+		mode: "cors",
+		method: "GET",
+	};
+
+	try {
+		const response = await fetch(
+			`${URL}get_NewActivity_By_Id/${id}`,
+			requestOption
+		);
 		const data = await response.json();
 		if (!response.ok) throw new Error(data.message);
 		return data;
@@ -360,4 +461,3 @@ export const fetchAdActivity = async (catId, subCatId) => {
 		throw error;
 	}
 };
-

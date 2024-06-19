@@ -1,14 +1,14 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import Loading from "../../pages/Loading";
 import { useFetchLibraryMember } from "../../hooks/useHome";
+import StaffDetailModal from "../modal/StaffDetailModal";
 
 const LibraryPeople = () => {
 	const { data: members, isLoading } = useFetchLibraryMember();
 
-	if(isLoading) return <Loading />;
-
+	if (isLoading) return <Loading />;
 
 	const role_1 = members?.libraryMembers?.filter((item) => item.role == 1);
 	const role_2 = members?.libraryMembers?.filter((item) => item.role == 2);
@@ -17,6 +17,8 @@ const LibraryPeople = () => {
 	const role_5 = members?.libraryMembers?.filter((item) => item.role == 5);
 
 	const StaffCard = ({ info, head = false }) => {
+		const [showStaffInfoModal, setShowStaffInfoModal] = useState(false);
+
 		return (
 			<article className="w-fit space-y-1 text-center">
 				<img
@@ -26,14 +28,22 @@ const LibraryPeople = () => {
 					src={info?.title_photo}
 					alt={info?.name}
 				/>
-				<p className="text-sm">{info?.position}</p>
+				<p className="text-sm">{info?.name}</p>
 				<h2 className={`${head ? "text-xl" : "text-base"} font-semibold`}>
-					{info?.name}
+					{info?.position}
 				</h2>
-				<button className="font-semibold px-6 py-2 block w-fit mx-auto mt-2 rounded-md drop-shadow-md bg-third text-white active:bg-third hover:bg-third/90">
+				<button
+					onClick={() => setShowStaffInfoModal(true)}
+					className="font-semibold px-6 py-2 block w-fit mx-auto mt-2 rounded-md drop-shadow-md bg-third text-white active:bg-third hover:bg-third/90"
+				>
 					View Profile
 				</button>
-                
+				<StaffDetailModal
+					info={info}
+					isOpen={showStaffInfoModal}
+					setIsOpen={setShowStaffInfoModal}
+					head={head}
+				/>
 			</article>
 		);
 	};
