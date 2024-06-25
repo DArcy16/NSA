@@ -8,7 +8,7 @@ const StaffDetailModal = ({ info, isOpen, setIsOpen, head = false }) => {
 		setIsOpen(false);
 	};
 
-  console.log(info)
+	console.log(info);
 
 	return (
 		<Modal
@@ -33,12 +33,15 @@ const StaffDetailModal = ({ info, isOpen, setIsOpen, head = false }) => {
 				{info?.degree && (
 					<p>
 						<span className="w-1/3 inline-block">Degree</span> :{"   "}
-						<span className="pl-3">{info?.degree}</span>
+						<span
+							dangerouslySetInnerHTML={{ __html: info?.degree }}
+							className="pl-3"
+						></span>
 					</p>
 				)}
 				{info?.num_of_research_work && (
 					<p>
-						<span className="w-1/3 inline-block">Number of Research Word</span>
+						<span className="w-1/3 inline-block">Number of Research Work</span>
 						{"   "}: <span className="pl-3">{info?.num_of_research_work}</span>
 					</p>
 				)}

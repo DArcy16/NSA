@@ -17,7 +17,7 @@ const VisionMissionCard = ({
 			<img className="w-1/2" src={img} alt="img" />
 			<div className="relative max-w-[600px] h-fit">
 				<div
-					className={`text-white bg_gradient1 transform px-5 py-6 ${
+					className={`text-white bg-secondary transform px-5 py-6 ${
 						reverse
 							? "translate-x-6 -translate-y-6"
 							: "-translate-x-6 -translate-y-6"
@@ -26,7 +26,7 @@ const VisionMissionCard = ({
 					<h2 className="text-xl font-semibold uppercase">{heading}</h2>
 					<p dangerouslySetInnerHTML={{ __html: desc }} className="text-sm" />
 				</div>
-				<div className="absolute bottom-0 right-0 w-full h-full bg-third/40 -z-10"></div>
+				<div className="absolute bottom-0 right-0 w-full h-full bg-secondary/40 -z-10"></div>
 			</div>
 		</div>
 	);

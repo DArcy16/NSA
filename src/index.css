@@ -244,7 +244,7 @@ table th {
 }
 
 .vision-collapse ul {
-	@apply list-disc list-inside  space-y-1 !important;
+	@apply list-disc list-outside  space-y-1 pl-2 !important;
 }
 
 .core_value p,
